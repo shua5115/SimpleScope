@@ -8,7 +8,7 @@ A simple oscilloscope intended for use with [Arduino UNO](https://docs.arduino.c
 
 ## Changing Sample Rate
 
-The Arduino sketch samples at 2 kHz due to the limits of how fast the Arduino UNO can sample with `analogRead`.
+The Arduino sketch samples at 5 kHz due to the limits of how fast the Arduino UNO can sample with `analogRead`.
 It is possible to change the sample rate by adjusting the following variables:
 - `PERIOD_US` (us) in Arduino defines the time between samples.
 - `SAMPLE_RATE` (Hz) in Processing should be equal to `1e6 / PERIOD_US`.

@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 boolean[] keys = new boolean[256];
 
-final int BAUD = 115200;
-final int SAMPLE_RATE = 2000;
+final int BAUD = 250000;
+final int SAMPLE_RATE = 5000;
 final float MIN_VOLTS = 0.0;
 final float MAX_VOLTS = 5.0;
 final float MAX_SAMPLE_VALUE = 1023.0;

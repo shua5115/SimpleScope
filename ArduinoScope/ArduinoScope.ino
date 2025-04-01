@@ -1,5 +1,5 @@
-#define BAUD 115200
-#define PERIOD_US 500 // microseconds per sample
+#define BAUD 250000
+#define PERIOD_US 200 // microseconds per sample
 
 void setup() {
   Serial.begin(BAUD);
