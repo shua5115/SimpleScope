@@ -234,7 +234,7 @@ void drawScope() {
   beginShape(LINES);
   px = (int) map(0, 0, samples.length-1, 0, width);
   py = (int) map((float) unpack_sample_a(samples[0]), 0.0, 1023.0, height, 0.0);
-  for (int i = 0; i < samples.length; i++) {
+  for (int i = 1; i < samples.length; i++) {
     int sample = samples[i];
     char a = unpack_sample_a(sample);
     int x = (int) map(i, 0, samples.length-1, 0, width);
@@ -298,7 +298,7 @@ void exit() {
 }
 
 void keyPressed() {
-  if (keyCode >= 0 && keyCode < 256) {
+  if (keyCode >= 0 && keyCode < keys.length) {
     keys[keyCode] = true;
   }
   if (device == null) {
@@ -388,7 +388,7 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (keyCode >= 0 && keyCode < 256) {
+  if (keyCode >= 0 && keyCode < keys.length) {
     keys[keyCode] = false;
   }
 }
@@ -419,6 +419,7 @@ void serialEvent(Serial s) {
         // then signal is probably misaligned by 1 byte, so consume one more byte.
         s.read();
       }
+      // remove identifying bit
       s1 = (char) (s1 & 0x7FFF);
       s2 = (char) (s2 & 0x7FFF);
       samples_to_add.add(is_s1_a ? pack_sample(s1, s2) : pack_sample(s2, s1));
